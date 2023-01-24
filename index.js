@@ -29,6 +29,12 @@ const questions = [
     name: 'test'
   },
   {
+    type: 'list',
+    message: 'Select your license:',
+    name: 'license',
+    choices: ['The Unlicense', 'MIT License', 'Boost Software License 1.0', 'Apache License 2.0']
+  },
+  {
     message: 'Enter your github username:',
     name: 'username'
   },
@@ -39,15 +45,23 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeToFile(fileName, resp, (err) => {
+        if(err){
+            throw err
+        }})
+}
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)
         .then((resp) => {
+            resp.username = "https://github.com/" + resp.username
+            resp.install = "```bash" + resp.install + "```"
             const markdownText = generateMarkdown(resp)
             console.log(markdownText)
+            writeToFile('README-Output.md', resp)
         });
 }
 
