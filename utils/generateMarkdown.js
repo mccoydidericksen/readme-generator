@@ -673,7 +673,7 @@ function generateMarkdown(data) {
   * [License](#license)
   * [Contributing](#contributing)
   * [Tests](#tests)
-  * [Questions](#questions)ghib
+  * [Questions](#questions)
   
   ## Installation
   ${data.install}
@@ -682,7 +682,7 @@ function generateMarkdown(data) {
   ${data.usage}
   
   ## License
-  ${data.licese}
+  ${data.license}
   ${renderLicenseSection(data.license)}
 
   For more information, please visit [here](${renderLicenseLink(data.license)}).
@@ -691,7 +691,7 @@ function generateMarkdown(data) {
   ${data.contribution}
 
   ## Tests
-  ${data.tests}
+  ${data.test}
 
   ## Questions
   For any further questions about the application, please email me at: ${data.email}. Visit my [GitHub Profile](${data.username}) to see my other projects.

@@ -46,7 +46,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeToFile(fileName, resp, (err) => {
+    fs.writeFile(fileName, data, (err) => {
         if(err){
             throw err
         }})
@@ -58,10 +58,8 @@ function init() {
         .prompt(questions)
         .then((resp) => {
             resp.username = "https://github.com/" + resp.username
-            resp.install = "```bash" + resp.install + "```"
             const markdownText = generateMarkdown(resp)
-            console.log(markdownText)
-            writeToFile('README-Output.md', resp)
+            writeToFile('README-Output.md', markdownText)
         });
 }
 
